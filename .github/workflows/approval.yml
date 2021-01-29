@@ -6,6 +6,9 @@ jobs:
   approval-one:
     name: Approval (one)
     runs-on: ubuntu-latest
+    env:
+      RUN_ID: runid
+      RUN_NUMBER: run num
 
     steps:
       - uses: actions/checkout@v1
