@@ -1,0 +1,17 @@
+name: Env Vars
+
+on: [push]
+
+jobs:
+  env-vars:
+    name: Env Vars (one)
+    runs-on: ubuntu-latest
+    env:
+      RUN_ID: runid
+      RUN_NUMBER: run num
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Echo
+        run: ./scripts/env.sh
