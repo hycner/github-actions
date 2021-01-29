@@ -1,0 +1,37 @@
+name: Manual Approval
+
+on: [push]
+
+jobs:
+  approval-one:
+    name: Approval (one)
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: One
+        run: ./scripts/one.sh
+
+  approval-two:
+    name: Approval (two)
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Two
+        run: ./scripts/two.sh
+
+  approval-three:
+    name: Approval (three)
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Three
+        run: ./scripts/three.sh
