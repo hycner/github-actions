@@ -9,9 +9,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-
       - name: One
-        run: ./scripts/one.sh
+        run: ./scripts/approval-1.sh
 
   approval-two:
     name: Approval (two)
@@ -21,9 +20,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-
       - name: Two
-        run: ./scripts/two.sh
+        run: ./scripts/approval-2.sh
 
   approval-three:
     name: Approval (three)
@@ -33,6 +31,5 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-
       - name: Three
-        run: ./scripts/three.sh
+        run: ./scripts/approval-3.sh

@@ -1,0 +1,41 @@
+name: Build Artifacts
+
+on: [push]
+
+jobs:
+  artifacts-one:
+    name: Artifacts (one)
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: One
+        run: ./scripts/artifacts-1.sh
+      - uses: actions/upload-artifact@v2
+        with:
+          name: artifacts-file
+          path: build/artifacts
+
+  artifacts-two:
+    name: Artifacts (two)
+    runs-on: ubuntu-latest
+    needs: artifacts-one
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Two
+        uses: actions/download-artifact@v2
+        with:
+          name: artifacts-file
+      - name: Two
+        run: ./scripts/artifacts-2.sh
+
+  artifacts-three:
+    name: Artifacts (three)
+    runs-on: ubuntu-latest
+    needs: artifacts-two
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Three
+        run: ./scripts/artifacts-3.sh
