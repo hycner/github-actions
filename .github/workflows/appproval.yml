@@ -5,7 +5,6 @@ on: [push]
 jobs:
   approval-one:
     name: Approval (one)
-
     runs-on: ubuntu-latest
 
     steps:
@@ -16,10 +15,9 @@ jobs:
 
   approval-two:
     name: Approval (two)
-
     runs-on: ubuntu-latest
-
     environment: qa
+    needs: approval-one
 
     steps:
       - uses: actions/checkout@v1
@@ -29,10 +27,9 @@ jobs:
 
   approval-three:
     name: Approval (three)
-
     runs-on: ubuntu-latest
-
     environment: prod
+    needs: approval-two
 
     steps:
       - uses: actions/checkout@v1
