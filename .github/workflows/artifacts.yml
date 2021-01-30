@@ -13,8 +13,8 @@ jobs:
         run: ./scripts/artifacts-1.sh
       - uses: actions/upload-artifact@v2
         with:
-          name: artifacts-file
-          path: build
+          name: artifacts-zip
+          path: build/artifacts.zip
 
   artifacts-two:
     name: Artifacts (two)
@@ -26,7 +26,7 @@ jobs:
       - name: Two
         uses: actions/download-artifact@v2
         with:
-          name: artifacts-file
+          name: artifacts-zip
       - name: Two
         run: ./scripts/artifacts-2.sh
 
