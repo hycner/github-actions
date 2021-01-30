@@ -14,7 +14,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: artifacts-file
-          path: build/artifacts
+          path: build
 
   artifacts-two:
     name: Artifacts (two)
