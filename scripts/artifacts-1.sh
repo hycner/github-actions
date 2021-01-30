@@ -1,6 +1,6 @@
 BUILD_DIR="$(dirname $(dirname $(realpath $0 )))/build"
 ARTIFACTS_DIRNAME="artifacts"
-ARTIFACTS_DIR="../build/$ARTIFACTS_DIRNAME"
+ARTIFACTS_DIR="$BUILD_DIR/$ARTIFACTS_DIRNAME"
 
 echo "artifacts one"
 
