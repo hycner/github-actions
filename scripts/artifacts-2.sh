@@ -5,7 +5,10 @@ ARTIFACTS_ZIP="$BUILD_DIR/artifacts.zip"
 
 echo "artifacts two"
 
-mv $ARTIFACTS_ZIP "build/$ARTIFACTS_ZIP"
+ls
+
+mkdir $BUILD_DIR
+mv $ARTIFACTS_ZIP $BUILD_DIR
 
 unzip $ARTIFACTS_ZIP -d $BUILD_DIR
 
