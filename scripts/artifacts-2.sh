@@ -13,6 +13,6 @@ mv $ARTIFACTS_ZIP_NAME $BUILD_DIR
 
 unzip $ARTIFACTS_ZIP -d $BUILD_DIR
 
-cat $BUILD_DIR/artifacts
+cat $ARTIFACTS_FILE
 echo "artifacts two" >> $ARTIFACTS_FILE
-cat $BUILD_DIR/artifacts
+cat $ARTIFACTS_FILE
