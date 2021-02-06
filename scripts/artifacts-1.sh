@@ -4,6 +4,7 @@ ARTIFACTS_DIR="$BUILD_DIR/$ARTIFACTS_DIRNAME"
 
 echo "artifacts one"
 
+# Make and zip artifacts
 mkdir $ARTIFACTS_DIR
 echo "artifacts file" > "$BUILD_DIR/artifacts/artifacts-file"
 
