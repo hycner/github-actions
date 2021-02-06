@@ -7,7 +7,7 @@ echo "artifacts two"
 
 ls
 
-mkdir $BUILD_DIR
+#mkdir $BUILD_DIR
 mv $ARTIFACTS_ZIP $BUILD_DIR
 
 unzip $ARTIFACTS_ZIP -d $BUILD_DIR
