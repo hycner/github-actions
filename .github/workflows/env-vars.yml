@@ -3,12 +3,28 @@ name: Env Vars
 on: [push]
 
 jobs:
-  env-vars:
+  env-vars-one:
     name: Env Vars (one)
     runs-on: ubuntu-latest
     env:
       RUN_ID: ${{ github.run_id }}
       RUN_NUMBER: ${{ github.run_number }}
+      QA_SECRET: ${{ secrets.QA_SECRET }}
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Echo
+        run: ./scripts/env.sh
+
+  env-vars-two:
+    name: Env Vars (two)
+    runs-on: ubuntu-latest
+    environment: qa
+    needs: env-vars-one
+    env:
+      RUN_ID: ${{ github.run_id }}
+      RUN_NUMBER: ${{ github.run_number }}
+      QA_SECRET: ${{ secrets.QA_SECRET }}
 
     steps:
       - uses: actions/checkout@v1
