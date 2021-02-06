@@ -38,4 +38,8 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Three
+        uses: actions/download-artifact@v2
+        with:
+          name: artifacts-zip
+      - name: Three
         run: ./scripts/artifacts-3.sh

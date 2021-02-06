@@ -6,9 +6,6 @@ ARTIFACTS_ZIP="$BUILD_DIR/$ARTIFACTS_ZIP_NAME"
 
 echo "artifacts two"
 
-ls
-
-#mkdir $BUILD_DIR
 mv $ARTIFACTS_ZIP_NAME $BUILD_DIR
 
 unzip $ARTIFACTS_ZIP -d $BUILD_DIR
