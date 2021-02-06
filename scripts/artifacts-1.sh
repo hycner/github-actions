@@ -6,7 +6,7 @@ echo "artifacts one"
 
 # Make and zip artifacts
 mkdir $ARTIFACTS_DIR
-echo "artifacts file" > "$BUILD_DIR/artifacts/artifacts-file"
+echo "artifacts file - line 1" > "$BUILD_DIR/artifacts/artifacts-file"
 
 cd $BUILD_DIR
 zip -r "$BUILD_DIR/artifacts.zip" $ARTIFACTS_DIRNAME
