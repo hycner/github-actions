@@ -23,8 +23,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - name: Two
-        uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v2
         with:
           name: artifacts-zip
       - name: Two
@@ -41,8 +40,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - name: Three
-        uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v2
         with:
           name: artifacts-zip
       - name: Three
