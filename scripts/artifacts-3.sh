@@ -4,7 +4,7 @@ ARTIFACTS_FILE="$BUILD_DIR/artifacts/artifacts-file"
 ARTIFACTS_ZIP_NAME="artifacts.zip"
 ARTIFACTS_ZIP="$BUILD_DIR/$ARTIFACTS_ZIP_NAME"
 
-echo "artifacts two"
+echo "artifacts three"
 
 mv $ARTIFACTS_ZIP_NAME $BUILD_DIR
 
