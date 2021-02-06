@@ -19,6 +19,6 @@ echo "artifacts file - line 2" >> $ARTIFACTS_FILE
 cat $ARTIFACTS_FILE
 
 # Make new artifacts zip
-rm "$BUILD_DIR/artifacts.zip"
+rm $ARTIFACTS_ZIP
 cd $BUILD_DIR
-zip -r "$BUILD_DIR/artifacts.zip" $ARTIFACTS_DIRNAME
+zip -r $ARTIFACTS_ZIP $ARTIFACTS_DIRNAME
