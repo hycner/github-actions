@@ -14,6 +14,7 @@ unzip $ARTIFACTS_ZIP -d $BUILD_DIR
 
 # Modify artifacts
 cat $ARTIFACTS_FILE
+echo ""
 echo "artifacts file - line 2" >> $ARTIFACTS_FILE
 cat $ARTIFACTS_FILE
 
