@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Echo
-        run: ./scripts/env.sh
+        run: ./scripts/env-vars.sh
 
   env-vars-two:
     name: Env Vars (two)
@@ -29,4 +29,4 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Echo
-        run: ./scripts/env.sh
+        run: ./scripts/env-vars.sh
