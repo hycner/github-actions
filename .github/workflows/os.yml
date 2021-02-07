@@ -1,0 +1,33 @@
+name: Operating Systems
+
+on: [push]
+
+jobs:
+  os-one:
+    name: OS (linux)
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: One
+        run: ./scripts/os-1.sh
+
+  os-two:
+    name: OS (mac)
+    runs-on: macos-latest
+    needs: os-one
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Two
+        run: ./scripts/os-1.sh
+
+  os-three:
+    name: OS (windows)
+    runs-on: windows-latest
+    needs: os-two
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Three
+        run: ./scripts/os-1.sh

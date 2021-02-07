@@ -9,3 +9,4 @@ Testing things with GitHub actions
     - This requires `environments` to be set up on the repo
 - `artifacts.yml` - Passing artifacts between jobs
 - `env-vars.yml` - Using environment variables
+- `os.yml` - Different operating systems on different steps
