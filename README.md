@@ -10,3 +10,9 @@ Testing things with GitHub actions
 - `artifacts.yml` - Passing artifacts between jobs
 - `env-vars.yml` - Using environment variables
 - `os.yml` - Different operating systems on different steps
+
+### TODO
+- Examples
+    - Caching
+    - Using docker in an action
+    - AWS S3 upload
