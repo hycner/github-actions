@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - name: One
+      - name: Linux
         run: ./scripts/os.sh
 
   os-two:
@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - name: Two
+      - name: Mac
         run: ./scripts/os.sh
 
   os-three:
@@ -29,6 +29,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - name: Three
+      - name: Windows
         shell: bash
         run: ./scripts/os.sh
