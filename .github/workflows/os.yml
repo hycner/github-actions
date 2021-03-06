@@ -6,6 +6,7 @@ jobs:
   os-one:
     name: OS (linux)
     runs-on: ubuntu-latest
+    environment: qa
 
     steps:
       - uses: actions/checkout@v1

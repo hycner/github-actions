@@ -6,6 +6,7 @@ jobs:
   artifacts-one:
     name: Artifacts (one)
     runs-on: ubuntu-latest
+    environment: qa
 
     steps:
       - uses: actions/checkout@v1
