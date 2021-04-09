@@ -21,7 +21,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - id: packageversion
         run: |
-          export EXT_VERSION="${node -e \"console.log(require('./package').version)\"}"
+          export EXT_VERSION=$(node -e "console.log(require('./package').version)")
           echo "::set-output name=packageversion::${EXT_VERSION}"
 
   use-output:
