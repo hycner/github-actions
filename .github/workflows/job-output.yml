@@ -1,0 +1,33 @@
+name: Job Output
+
+on: [push]
+
+jobs:
+  setup-output:
+    name: Setup job output
+    runs-on: ubuntu-latest
+    environment: qa
+    strategy:
+      matrix:
+        node-version: [ 12.x ]
+    outputs:
+      packageversion: ${{ steps.packageversion.outputs.packageversion }}
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - id: packageversion
+        run: |
+          export EXT_VERSION="${node -e \"console.log(require('./package').version)\"}"
+          echo "::set-output name=packageversion::${EXT_VERSION}"
+
+  use-output:
+    name: Use job output
+    runs-on: ubuntu-latest
+    needs: setup-output
+
+    steps:
+      - run: echo ${{needs.setup-output.outputs.packageversion}}
