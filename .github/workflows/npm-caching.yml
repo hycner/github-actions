@@ -1,0 +1,22 @@
+name: NPM Caching
+
+on: [push]
+
+jobs:
+  node-one:
+    name: NPM Install (first)
+    runs-on: ubuntu-latest
+    environment: qa
+
+    steps:
+      - uses: actions/checkout@v1
+      - run: npm ci
+
+  node-two:
+    name: NPM Install (second)
+    runs-on: ubuntu-latest
+    needs: node-one
+
+    steps:
+      - uses: actions/checkout@v1
+      - run: npm ci
