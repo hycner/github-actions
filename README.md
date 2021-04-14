@@ -12,6 +12,7 @@ Testing things with GitHub actions
 - `aws.yml` - Upload to AWS S3
 - `env-vars.yml` - Using environment variables
 - `job-output.yml` - Reference an exported variable from a previous job
+- `manual-trigger.yml` - Trigger a workflow manually with parameters
 - `npm-caching.yml` - Cache NPM's `node_modules`
 - `os.yml` - Different operating systems on different steps
 
