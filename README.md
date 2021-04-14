@@ -11,6 +11,7 @@ Testing things with GitHub actions
 - `artifacts.yml` - Passing artifacts between jobs
 - `aws.yml` - Upload to AWS S3
 - `env-vars.yml` - Using environment variables
+- `job-output.yml` - Reference an exported variable from a previous job
 - `npm-caching.yml` - Cache NPM's `node_modules`
 - `os.yml` - Different operating systems on different steps
 
