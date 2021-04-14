@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Good boy, ${{ github.event.inputs.dog }}!"
-      - run: echo "You pet the dog. ${{ github.event.inputs.virtue && 'You think about ' }}${{ github.event.inputs.virtue }}"
+      - run: echo "You pet the dog. ${{ github.event.inputs.virtue && 'You think about ' }}${{ github.event.inputs.virtue }}${{ github.event.inputs.virtue && '.' }}"
         if: ${{ github.event.inputs.pet == 'y' }}
 
   manual-two:
