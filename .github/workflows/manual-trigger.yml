@@ -7,15 +7,25 @@ on:
         description: 'Doggy name'
         required: true
         default: 'Spot'
-      food:
-        description: 'Desired food'
+      pet:
+        description: 'Pet dog? (y/n)'
+        required: true
+        default: 'y'
+      virtue:
+        description: 'Favorite virtue'
         required: false
-        default: 'Gnocci'
+        default: ''
 
 jobs:
-  print_inputs:
+  manual-one:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          echo "Good boy, ${{ github.event.inputs.dog }}!"
-          echo "Gimme ${{ github.event.inputs.food }}."
+      - run: echo "Good boy, ${{ github.event.inputs.dog }}!"
+      - run: echo "You pet the dog. ${{ github.event.inputs.virtue && 'You think about ' }}${{ github.event.inputs.virtue }}"
+        if: ${{ github.event.inputs.pet == 'y' }}
+
+  manual-two:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.pet == 'y' }}
+    steps:
+      - run: echo "You reflect on how great it was to pet the dog."
