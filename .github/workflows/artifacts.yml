@@ -15,7 +15,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: artifacts-zip
-          path: build/artifacts.zip
+          path: .github/build/artifacts.zip
 
   artifacts-two:
     name: Artifacts (two)
@@ -32,7 +32,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: artifacts-zip
-          path: build/artifacts.zip
+          path: .github/build/artifacts.zip
 
   artifacts-three:
     name: Artifacts (three)
