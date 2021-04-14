@@ -19,4 +19,4 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-west-2
       - name: Deploy to bucket
-        run: ./scripts/aws-upload.sh
+        run: ./.github/scripts/aws-upload.sh

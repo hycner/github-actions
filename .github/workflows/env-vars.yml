@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Echo
-        run: ./scripts/env-vars.sh
+        run: ./.github/scripts/env-vars.sh
 
   env-vars-two:
     name: Env Vars (two)
@@ -28,7 +28,7 @@ jobs:
           RUN_ID: ${{ github.run_id }}
           RUN_NUMBER: ${{ github.run_number }}
           QA_SECRET: ${{ secrets.QA_SECRET }}
-        run: ./scripts/env-vars-2.sh
+        run: ./.github/scripts/env-vars-2.sh
 
   env-vars-three:
     name: Env Vars (three)
@@ -43,4 +43,4 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Echo
-        run: ./scripts/env-vars.sh
+        run: ./.github/scripts/env-vars.sh

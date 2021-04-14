@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: One
-        run: ./scripts/artifacts-1.sh
+        run: ./.github/scripts/artifacts-1.sh
       - uses: actions/upload-artifact@v2
         with:
           name: artifacts-zip
@@ -28,7 +28,7 @@ jobs:
         with:
           name: artifacts-zip
       - name: Two
-        run: ./scripts/artifacts-2.sh
+        run: ./.github/scripts/artifacts-2.sh
       - uses: actions/upload-artifact@v2
         with:
           name: artifacts-zip
@@ -45,4 +45,4 @@ jobs:
         with:
           name: artifacts-zip
       - name: Three
-        run: ./scripts/artifacts-3.sh
+        run: ./.github/scripts/artifacts-3.sh
