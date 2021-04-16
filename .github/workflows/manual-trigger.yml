@@ -42,6 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: manual-one
     steps:
+      - run: echo "outputs.pet - ${{ needs.manual-one.outputs.pet }}"
       - run: echo "Good boy, ${{ github.event.inputs.dog }}!"
       - run: echo "You pet the dog. ${{ github.event.inputs.virtue && 'You think about ' }}${{ github.event.inputs.virtue }}${{ github.event.inputs.virtue && '.' }}"
         if: ${{ needs.manual-one.outputs.pet }}
