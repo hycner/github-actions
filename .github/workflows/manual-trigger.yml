@@ -18,14 +18,40 @@ on:
 
 jobs:
   manual-one:
+    name: Setup
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 12.x ]
+    outputs:
+      pet: ${{ steps.set-pet.outputs.pet }}
     steps:
-      - run: echo "Good boy, ${{ github.event.inputs.dog }}!"
-      - run: echo "You pet the dog. ${{ github.event.inputs.virtue && 'You think about ' }}${{ github.event.inputs.virtue }}${{ github.event.inputs.virtue && '.' }}"
-        if: ${{ github.event.inputs.pet == 'y' }}
+      - uses: actions/checkout@v1
+      - id: set-pet
+        run: |
+          if [ ${{ github.event.inputs.pet }} == "y" ]; then
+            echo "It is y"
+            echo "::set-output name=pet::${{ true }}"
+            exit 0
+          fi
+          if [ ${{ github.event.inputs.pet }} == "n" ]; then
+            echo "It is n"
+            echo "::set-output name=pet::${{ false }}"
+            exit 0
+          fi
+          exit 1
 
   manual-two:
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.pet == 'y' }}
+    needs: manual-one
+    steps:
+      - run: echo "Good boy, ${{ github.event.inputs.dog }}!"
+      - run: echo "You pet the dog. ${{ github.event.inputs.virtue && 'You think about ' }}${{ github.event.inputs.virtue }}${{ github.event.inputs.virtue && '.' }}"
+        if: ${{ needs.manual-one.outputs.pet }}
+
+  manual-three:
+    runs-on: ubuntu-latest
+    needs: [manual-one, manual-two]
+    if: ${{ needs.manual-one.outputs.pet }}
     steps:
       - run: echo "You reflect on how great it was to pet the dog."
