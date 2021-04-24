@@ -24,7 +24,8 @@ jobs:
       pet: ${{ steps.set-pet.outputs.pet }}
     steps:
       - uses: actions/checkout@v1
-      - id: set-pet
+      - name: Verify Pet Input
+        id: set-pet
         run: |
           if [ ${{ github.event.inputs.pet }} == "y" ]; then
             echo "It is y"
