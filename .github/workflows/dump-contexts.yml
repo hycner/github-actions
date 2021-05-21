@@ -10,8 +10,9 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: |
-          echo "${{ github.ref }}"
-          echo "${${{ github.ref }}:3}"
+          REF="${{ github.ref }}"
+          echo "$REF"
+          echo "${$REF:3}"
           echo "$GITHUB_CONTEXT"
 
       - name: Dump job context
