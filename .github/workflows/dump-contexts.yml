@@ -9,8 +9,9 @@ jobs:
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
-        run: echo "$GITHUB_CONTEXT"
-        run: echo "echo \"${${{ github.ref }}:3}\""
+        run: |
+          echo "$GITHUB_CONTEXT"
+          echo "echo \"${${{ github.ref }}:3}\""
 
       - name: Dump job context
         env:
