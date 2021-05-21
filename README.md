@@ -10,6 +10,7 @@ Testing things with GitHub actions
 - `approval.yml` - Manual approval
 - `artifacts.yml` - Passing artifacts between jobs
 - `aws.yml` - Upload to AWS S3
+- `dump-contexts.yml` - Dump GitHub Actions contexts
 - `env-vars.yml` - Using environment variables
 - `job-output.yml` - Reference an exported variable from a previous job
 - `manual-trigger.yml` - Trigger a workflow manually with parameters
