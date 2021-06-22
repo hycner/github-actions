@@ -36,6 +36,6 @@ jobs:
       - name: Execute Deletion
         run: |
           git config --global user.name 'GitHub Action - delete'
-          git config --global user.email 'thereis@no.email'
+          git config --global user.email 'hycner@users.noreply.github.com'
 
           git push origin --delete ${{github.event.inputs.branch-name}}
