@@ -11,8 +11,11 @@ jobs:
   delete-branch:
     name: Delete Branch
     runs-on: ubuntu-latest
+    environment: admin
     steps:
       - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.ACCESS_TOKEN_GITHUB }}
       - name: Verify Branch Exists
         run: |
           git fetch
