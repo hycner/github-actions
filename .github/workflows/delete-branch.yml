@@ -17,6 +17,8 @@ jobs:
       - uses: actions/checkout@v1
       - name: Verify Branch Exists
         run: |
+          git pull
+
           BRANCH_EXISTS=$(git ls-remote --heads origin ${GIT_REF:11})
 
           echo "$BRANCH_EXISTS"
