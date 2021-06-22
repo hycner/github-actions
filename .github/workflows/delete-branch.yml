@@ -19,8 +19,12 @@ jobs:
         run: |
           git fetch
 
-          BRANCH_EXISTS=$(git ls-remote --heads origin ${GIT_REF:11})
+          BRANCH_TEST=$(git ls-remote --heads origin)
+          echo "BRANCH_TEST"
+          echo "$BRANCH_TEST"
 
+          BRANCH_EXISTS=$(git ls-remote --heads origin ${GIT_REF:11})
+          echo "BRANCH_EXISTS"
           echo "$BRANCH_EXISTS"
 
           if [[ -z ${BRANCH_EXISTS} ]]; then
