@@ -34,4 +34,8 @@ jobs:
           echo "Branch exists"
           exit 0
       - name: Execute Deletion
-        run: git push origin --delete ${{github.event.inputs.branch-name}}
+        run: |
+          git config --global user.name 'GitHub Action - delete'
+          git config --global user.email 'thereis@no.email'
+
+          git push origin --delete ${{github.event.inputs.branch-name}}
