@@ -22,7 +22,7 @@ jobs:
           echo "BRANCH_TEST"
           echo "$BRANCH_TEST"
 
-          BRANCH_EXISTS=$(git ls-remote --heads origin ${github.event.inputs.branch-name})
+          BRANCH_EXISTS=$(git ls-remote --heads origin ${{github.event.inputs.branch-name}})
           echo "BRANCH_EXISTS"
           echo "$BRANCH_EXISTS"
 
@@ -34,4 +34,4 @@ jobs:
           echo "Branch exists"
           exit 0
       - name: Execute Deletion
-        run: git push origin --delete ${github.event.inputs.branch-name}
+        run: git push origin --delete ${{github.event.inputs.branch-name}}
