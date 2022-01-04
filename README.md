@@ -17,6 +17,7 @@ Testing things with GitHub actions
 - `manual-trigger.yml` - Trigger a workflow manually with parameters
 - `npm-caching.yml` - Cache NPM's `node_modules`
 - `os.yml` - Different operating systems on different steps
+- `runtime-variables.yml` - Passing in runtime variables when starting a job
 
 ### TODO
 - Examples

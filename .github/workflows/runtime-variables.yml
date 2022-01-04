@@ -1,0 +1,43 @@
+name: Runtime Variables
+
+on:
+  workflow_dispatch:
+    inputs:
+      custom-text:
+        description: 'Custom Text (valid inputs are y or n)'
+        required: true
+        default: 'y'
+
+jobs:
+  variables:
+    name: Setup Variables
+    runs-on: ubuntu-latest
+    outputs:
+      custom-text: ${{ steps.set-test-mode.outputs.custom-text }}
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set Test Mode (and ACL flag)
+        id: set-test-mode
+        run: |
+          if [ ${{ github.event.inputs.custom-text }} == "y" ]; then
+            echo "Custom text was y"
+            echo ::set-output name=custom-text::true
+            exit 0
+          fi
+          if [ ${{ github.event.inputs.custom-text }} == "n" ]; then
+            echo "Custom text was n"
+            echo ::set-output name=custom-text::false
+            exit 0
+          fi
+          echo "Invalid Custom Text parameter. Requires 'y' or 'n'"
+          exit 1
+
+  log-variables:
+    needs: variables
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo "custom-text - ${{needs.variables.outputs.custom-text}}"
+
