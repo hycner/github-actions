@@ -7,19 +7,35 @@ on:
         description: 'Custom Text (valid inputs are y or n)'
         required: true
         default: 'y'
+      multiple-choice:
+        description: 'Multiple Choice'
+        required: true
+        default: 'one'
+        type: choice
+        options:
+        - one
+        - two
+        - three
+      boolean-value:
+        description: 'Boolean Value'
+        type: boolean
+      environment-select:
+        description: 'Environment to run in'
+        type: environment
 
 jobs:
   variables:
     name: Setup Variables
     runs-on: ubuntu-latest
     outputs:
-      custom-text: ${{ steps.set-test-mode.outputs.custom-text }}
+      custom-text: ${{ steps.set-custom-text.outputs.custom-text }}
+      multiple-choice: ${{ steps.set-multiple-choice.outputs.multiple-choice }}
 
     steps:
       - uses: actions/checkout@v2
 
-      - name: Set Test Mode (and ACL flag)
-        id: set-test-mode
+      - name: Set Custom Text
+        id: set-custom-text
         run: |
           if [ ${{ github.event.inputs.custom-text }} == "y" ]; then
             echo "Custom text was y"
@@ -33,6 +49,12 @@ jobs:
           fi
           echo "Invalid Custom Text parameter. Requires 'y' or 'n'"
           exit 1
+      
+      - name: Set Multiple Choice
+        id: set-multiple-choice
+        run: echo ::set-output name=multiple-choice::${{ github.event.inputs.multiple-choice }}
+
+      # boolean-value used directly
 
   log-variables:
     needs: variables
@@ -40,4 +62,7 @@ jobs:
 
     steps:
       - run: echo "custom-text - ${{needs.variables.outputs.custom-text}}"
+      - run: echo "multiple-choice - ${{needs.variables.outputs.multiple-choice}}"
+      - run: echo "boolean-value - ${{github.event.inputs.boolean-value}}"
+      - run: echo "environment-select - ${{github.event.inputs.environment-select}}"
 
